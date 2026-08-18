@@ -50,8 +50,8 @@ export default function Footer() {
             <Image
               src="/um-logo-footer.webp"
               alt="UM Logo"
-              width={80}
-              height={80}
+              width={96}
+              height={96}
               className="rounded opacity-80"
             />
             <span className="text-white/60 text-sm font-light">
