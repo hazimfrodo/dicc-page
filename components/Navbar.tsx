@@ -30,13 +30,21 @@ export default function Navbar() {
     >
       <div className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
         {/* Logo */}
-        <a href="#" className="flex items-center gap-2 group">
+        <a href="#" className="flex items-center gap-3 group">
+          <Image
+            src="/um-logo.webp"
+            alt="UM Logo"
+            width={40}
+            height={40}
+            className="rounded"
+          />
+          <div className={`w-px h-8 ${scrolled ? "bg-gray-300" : "bg-white/30"}`} />
           <Image
             src="/dicc-logo.png"
             alt="DICC Logo"
-            width={36}
-            height={36}
-            className="rounded-lg"
+            width={32}
+            height={32}
+            className="rounded"
           />
           <span
             className={`font-semibold text-sm tracking-wide transition-colors duration-300 ${

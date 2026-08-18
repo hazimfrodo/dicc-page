@@ -1,5 +1,7 @@
 "use client";
 
+import Image from "next/image";
+
 const socialLinks = [
   {
     label: "Facebook",
@@ -45,6 +47,13 @@ export default function Footer() {
       <div className="max-w-7xl mx-auto px-6">
         <div className="flex flex-col md:flex-row items-center justify-between gap-8">
           <div className="flex items-center gap-3">
+            <Image
+              src="/um-logo-footer.webp"
+              alt="UM Logo"
+              width={50}
+              height={50}
+              className="rounded opacity-80"
+            />
             <span className="text-white/60 text-sm font-light">
               DICC Universiti Malaya
             </span>
