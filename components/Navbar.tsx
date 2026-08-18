@@ -34,16 +34,16 @@ export default function Navbar() {
           <Image
             src="/um-logo.webp"
             alt="UM Logo"
-            width={40}
-            height={40}
+            width={48}
+            height={48}
             className="rounded"
           />
-          <div className={`w-px h-8 ${scrolled ? "bg-gray-300" : "bg-white/30"}`} />
+          <div className={`w-px h-10 ${scrolled ? "bg-gray-300" : "bg-white/30"}`} />
           <Image
             src="/dicc-logo.png"
             alt="DICC Logo"
-            width={32}
-            height={32}
+            width={40}
+            height={40}
             className="rounded"
           />
           <span
