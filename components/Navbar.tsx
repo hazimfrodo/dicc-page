@@ -46,13 +46,6 @@ export default function Navbar() {
             height={32}
             className="rounded"
           />
-          <span
-            className={`font-semibold text-sm tracking-wide transition-colors duration-300 ${
-              scrolled ? "text-[#061a3a]" : "text-white"
-            }`}
-          >
-            Data Intensive Computing Centre (DICC)
-          </span>
         </a>
 
         {/* Desktop nav */}
