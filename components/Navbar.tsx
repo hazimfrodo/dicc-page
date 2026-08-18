@@ -66,7 +66,7 @@ export default function Navbar() {
             rel="noopener noreferrer"
             className="px-5 py-2 bg-[#192f59] text-white text-sm font-semibold rounded-full hover:bg-[#0d1927] transition-all duration-300 hover:shadow-lg hover:shadow-[#192f59]/25"
           >
-            Get Started
+            Register Now
           </a>
         </div>
 
@@ -123,7 +123,7 @@ export default function Navbar() {
               rel="noopener noreferrer"
               className="mt-2 px-5 py-2.5 bg-[#192f59] text-white text-sm font-semibold rounded-full text-center hover:bg-[#0d1927] transition-colors"
             >
-              Get Started
+              Register Now
             </a>
           </div>
         </div>
