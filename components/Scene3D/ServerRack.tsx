@@ -17,7 +17,7 @@ function RackUnit({ y, index }: { y: number; index: number }) {
     ledRefs.current.forEach((led, i) => {
       if (!led) return;
       const mat = led.material as THREE.MeshStandardMaterial;
-      mat.emissiveIntensity = 0.5 + Math.sin(t * 2 + index * 1.5 + i * 0.8) * 0.5;
+      mat.emissiveIntensity = 1.5 + Math.sin(t * 2 + index * 1.5 + i * 0.8) * 1.0;
     });
   });
 
@@ -38,17 +38,17 @@ function RackUnit({ y, index }: { y: number; index: number }) {
       ))}
 
       {/* Status LEDs */}
-      {[0.15, 0.165, 0.18].map((x, i) => (
+      {[0.15, 0.17, 0.19].map((x, i) => (
         <mesh
           key={i}
           ref={(el) => { if (el) ledRefs.current[i] = el; }}
           position={[x, 0, 0.208]}
         >
-          <boxGeometry args={[0.004, 0.004, 0.002]} />
+          <boxGeometry args={[0.012, 0.012, 0.004]} />
           <meshStandardMaterial
             color={i === 0 ? "#4CAF50" : i === 1 ? "#2196F3" : "#FFC107"}
             emissive={i === 0 ? "#4CAF50" : i === 1 ? "#2196F3" : "#FFC107"}
-            emissiveIntensity={0.8}
+            emissiveIntensity={2}
           />
         </mesh>
       ))}
@@ -143,22 +143,22 @@ export default function ServerRack({ position, index }: ServerRackProps) {
         ref={topLedRef}
         position={[0.16, 0.42, 0.156]}
       >
-        <boxGeometry args={[0.008, 0.008, 0.002]} />
+        <boxGeometry args={[0.02, 0.02, 0.006]} />
         <meshStandardMaterial
           color="#4CAF50"
           emissive="#4CAF50"
-          emissiveIntensity={1}
+          emissiveIntensity={2.5}
         />
       </mesh>
 
       {/* Network port LEDs */}
-      {[0.12, 0.135, 0.15].map((x, i) => (
+      {[0.11, 0.13, 0.15].map((x, i) => (
         <mesh key={`net-${i}`} position={[x, 0.38, 0.156]}>
-          <boxGeometry args={[0.004, 0.004, 0.002]} />
+          <boxGeometry args={[0.01, 0.01, 0.004]} />
           <meshStandardMaterial
             color="#00BCD4"
             emissive="#00BCD4"
-            emissiveIntensity={0.6}
+            emissiveIntensity={2}
           />
         </mesh>
       ))}
