@@ -2,6 +2,7 @@
 
 import dynamic from "next/dynamic";
 import { ScrollParallax, CursorParallax } from "./Parallax";
+import { AppleReveal, AppleStagger, AppleScaleOnScroll } from "./AppleReveal";
 
 const AboutBackground = dynamic(() => import("./Scene3D/AboutBackground"), {
   ssr: false,
@@ -42,46 +43,46 @@ const features = [
 
 export default function About() {
   return (
-    <section id="about" className="relative py-20 md:py-28 bg-white overflow-hidden">
+    <section id="about" className="relative py-32 md:py-44 bg-white overflow-hidden">
       <ScrollParallax speed={0.15} className="absolute inset-0">
         <AboutBackground />
       </ScrollParallax>
       <div className="relative z-10 max-w-7xl mx-auto px-6">
-        <ScrollParallax speed={0.1}>
-          <div className="text-center mb-16">
-            <p className="text-[#C8A951] text-sm font-semibold tracking-widest uppercase mb-3">
+        {/* Apple-style oversized heading */}
+        <AppleReveal direction="up" distance={40}>
+          <div className="text-center mb-24">
+            <p className="text-[#C8A951] text-sm font-semibold tracking-[0.2em] uppercase mb-4">
               About Us
             </p>
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-[#061a3a] max-w-3xl mx-auto leading-tight">
-              Empowering Research Through Computing
+            <h2 className="text-4xl md:text-6xl lg:text-7xl font-bold text-[#061a3a] max-w-4xl mx-auto leading-[1.1] tracking-tight">
+              Empowering Research
+              <br />
+              Through Computing
             </h2>
-            <p className="mt-5 text-[#848484] text-lg max-w-2xl mx-auto leading-relaxed">
-              The Data-Intensive Computing Centre (DICC) at Universiti Malaya
-              provides world-class research computing infrastructure and support
-              services to empower researchers across all disciplines.
+            <p className="mt-8 text-[#848484] text-xl max-w-2xl mx-auto leading-relaxed font-light">
+              World-class research computing infrastructure to empower researchers across all disciplines.
             </p>
           </div>
-        </ScrollParallax>
+        </AppleReveal>
 
-        <div className="grid md:grid-cols-3 gap-8">
-          {features.map((feature, i) => (
-            <ScrollParallax key={feature.title} speed={0.08 + i * 0.04}>
-              <CursorParallax speed={8 - i * 2}>
-                <div className="group p-8 rounded-2xl border border-gray-100 hover:border-[#C8A951]/30 bg-white/80 backdrop-blur-sm hover:shadow-xl hover:shadow-[#C8A951]/5 transition-all duration-500 hover:-translate-y-1 h-full">
-                  <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-[#192f59] to-[#0d1927] flex items-center justify-center text-[#C8A951] mb-6 group-hover:scale-110 transition-transform duration-300">
-                    {feature.icon}
-                  </div>
-                  <h3 className="text-xl font-bold text-[#061a3a] mb-3">
-                    {feature.title}
-                  </h3>
-                  <p className="text-[#848484] leading-relaxed">
-                    {feature.description}
-                  </p>
+        {/* Apple-style feature cards - clean, minimal */}
+        <AppleStagger className="grid md:grid-cols-3 gap-10" stagger={0.15} direction="up" distance={50}>
+          {features.map((feature) => (
+            <CursorParallax key={feature.title} speed={6}>
+              <div className="group p-10 rounded-3xl bg-[#f2f2f5] hover:bg-[#061a3a] transition-all duration-700 h-full">
+                <div className="w-16 h-16 rounded-2xl bg-[#061a3a] group-hover:bg-[#C8A951] flex items-center justify-center text-[#C8A951] group-hover:text-[#061a3a] mb-8 transition-all duration-700">
+                  {feature.icon}
                 </div>
-              </CursorParallax>
-            </ScrollParallax>
+                <h3 className="text-2xl font-bold text-[#061a3a] group-hover:text-white mb-4 transition-colors duration-700">
+                  {feature.title}
+                </h3>
+                <p className="text-[#848484] group-hover:text-white/60 leading-relaxed text-lg transition-colors duration-700">
+                  {feature.description}
+                </p>
+              </div>
+            </CursorParallax>
           ))}
-        </div>
+        </AppleStagger>
       </div>
     </section>
   );

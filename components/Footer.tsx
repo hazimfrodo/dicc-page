@@ -41,31 +41,28 @@ const socialLinks = [
 
 export default function Footer() {
   return (
-    <footer className="bg-[#061a3a] py-12">
+    <footer className="bg-[#061a3a] py-16">
       <div className="max-w-7xl mx-auto px-6">
-        <div className="flex flex-col md:flex-row items-center justify-between gap-6">
-          {/* Logo */}
+        <div className="flex flex-col md:flex-row items-center justify-between gap-8">
           <div className="flex items-center gap-3">
-            <span className="text-white/90 font-semibold text-sm">
+            <span className="text-white/60 text-sm font-light">
               DICC Universiti Malaya
             </span>
           </div>
 
-          {/* Copyright */}
-          <p className="text-white/40 text-sm text-center">
+          <p className="text-white/30 text-sm text-center font-light">
             &copy; {new Date().getFullYear()} Data-Intensive Computing Centre,
             Universiti Malaya. All Rights Reserved.
           </p>
 
-          {/* Social */}
-          <div className="flex items-center gap-3">
+          <div className="flex items-center gap-4">
             {socialLinks.map((link) => (
               <a
                 key={link.label}
                 href={link.href}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-9 h-9 rounded-full bg-white/10 flex items-center justify-center text-white/50 hover:bg-[#C8A951] hover:text-white transition-all duration-300"
+                className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center text-white/30 hover:bg-[#C8A951] hover:text-[#061a3a] transition-all duration-500"
                 aria-label={link.label}
               >
                 {link.icon}

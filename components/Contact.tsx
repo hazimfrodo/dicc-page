@@ -1,6 +1,7 @@
 "use client";
 
 import { ScrollParallax, CursorParallax } from "./Parallax";
+import { AppleReveal, AppleStagger } from "./AppleReveal";
 
 const contactInfo = [
   {
@@ -43,54 +44,52 @@ const contactInfo = [
 
 export default function Contact() {
   return (
-    <section id="contact" className="py-20 md:py-28 bg-[#f2f2f5]">
+    <section id="contact" className="py-32 md:py-44 bg-[#f2f2f5]">
       <div className="max-w-7xl mx-auto px-6">
-        <ScrollParallax speed={0.1}>
-          <div className="text-center mb-16">
-            <p className="text-[#C8A951] text-sm font-semibold tracking-widest uppercase mb-3">
+        <AppleReveal direction="up">
+          <div className="text-center mb-24">
+            <p className="text-[#C8A951] text-sm font-semibold tracking-[0.2em] uppercase mb-4">
               Contact Us
             </p>
           </div>
-        </ScrollParallax>
+        </AppleReveal>
 
-        <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
-          {contactInfo.map((item, i) => (
-            <ScrollParallax key={item.title} speed={0.06 + i * 0.03}>
-              <CursorParallax speed={8}>
-                <div className="p-8 rounded-2xl bg-white shadow-lg shadow-black/5 h-full">
-                  <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-[#192f59] to-[#0d1927] flex items-center justify-center text-[#C8A951] mb-5">
-                    {item.icon}
-                  </div>
-                  <h3 className="text-lg font-bold text-[#061a3a] mb-3">
-                    {item.title}
-                  </h3>
-                  {item.lines && (
-                    <div className="text-[#848484] text-sm leading-relaxed">
-                      {item.lines.map((line, i) => (
-                        <p key={i}>{line}</p>
-                      ))}
-                    </div>
-                  )}
-                  {item.links && (
-                    <div className="flex flex-col gap-2">
-                      {item.links.map((link) => (
-                        <a
-                          key={link.label}
-                          href={link.href}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="text-[#192f59] text-sm font-medium hover:text-[#C8A951] transition-colors"
-                        >
-                          {link.label}
-                        </a>
-                      ))}
-                    </div>
-                  )}
+        <AppleStagger className="grid md:grid-cols-3 gap-10 max-w-5xl mx-auto" stagger={0.12} direction="up" distance={40}>
+          {contactInfo.map((item) => (
+            <CursorParallax key={item.title} speed={6}>
+              <div className="p-10 rounded-[2rem] bg-white shadow-xl shadow-black/[0.03] h-full">
+                <div className="w-16 h-16 rounded-2xl bg-[#061a3a] flex items-center justify-center text-[#C8A951] mb-7">
+                  {item.icon}
                 </div>
-              </CursorParallax>
-            </ScrollParallax>
+                <h3 className="text-2xl font-bold text-[#061a3a] mb-4">
+                  {item.title}
+                </h3>
+                {item.lines && (
+                  <div className="text-[#848484] text-base leading-relaxed">
+                    {item.lines.map((line, i) => (
+                      <p key={i}>{line}</p>
+                    ))}
+                  </div>
+                )}
+                {item.links && (
+                  <div className="flex flex-col gap-3">
+                    {item.links.map((link) => (
+                      <a
+                        key={link.label}
+                        href={link.href}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-[#192f59] text-base font-medium hover:text-[#C8A951] transition-colors"
+                      >
+                        {link.label}
+                      </a>
+                    ))}
+                  </div>
+                )}
+              </div>
+            </CursorParallax>
           ))}
-        </div>
+        </AppleStagger>
       </div>
     </section>
   );

@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 import dynamic from "next/dynamic";
 import { ScrollParallax } from "./Parallax";
+import { AppleReveal, AppleStagger } from "./AppleReveal";
 
 const StatsBackground = dynamic(() => import("./Scene3D/StatsBackground"), {
   ssr: false,
@@ -61,27 +62,27 @@ function AnimatedCounter({
 
 export default function StatsBar() {
   return (
-    <section className="relative bg-[#0d1927] py-16 md:py-20 overflow-hidden">
+    <section className="relative bg-[#0d1927] py-24 md:py-32 overflow-hidden">
       <ScrollParallax speed={0.2} className="absolute inset-0">
         <StatsBackground />
       </ScrollParallax>
-      <div className="relative z-10 max-w-7xl mx-auto px-6 grid grid-cols-2 md:grid-cols-4 gap-8">
-        {stats.map((stat, i) => (
-          <ScrollParallax key={stat.label} speed={0.1 + i * 0.05}>
-            <div className="text-center">
-              <div className="text-3xl md:text-4xl lg:text-5xl font-bold text-[#C8A951]">
+      <div className="relative z-10 max-w-7xl mx-auto px-6">
+        <AppleStagger className="grid grid-cols-2 md:grid-cols-4 gap-12" stagger={0.12} direction="up" distance={30}>
+          {stats.map((stat) => (
+            <div key={stat.label} className="text-center">
+              <div className="text-4xl md:text-5xl lg:text-6xl font-bold text-[#C8A951] tracking-tight">
                 <AnimatedCounter
                   value={stat.value}
                   suffix={stat.suffix}
                   decimals={stat.decimals}
                 />
               </div>
-              <p className="mt-2 text-sm md:text-base text-white/60 font-medium">
+              <p className="mt-3 text-base text-white/40 font-light">
                 {stat.label}
               </p>
             </div>
-          </ScrollParallax>
-        ))}
+          ))}
+        </AppleStagger>
       </div>
     </section>
   );

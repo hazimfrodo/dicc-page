@@ -2,6 +2,7 @@
 
 import dynamic from "next/dynamic";
 import { ScrollParallax, CursorParallax } from "./Parallax";
+import { AppleReveal, AppleStagger } from "./AppleReveal";
 
 const NewsBackground = dynamic(() => import("./Scene3D/NewsBackground"), {
   ssr: false,
@@ -39,57 +40,58 @@ const news = [
 
 export default function News() {
   return (
-    <section id="news" className="relative py-20 md:py-28 bg-white overflow-hidden">
+    <section id="news" className="relative py-32 md:py-44 bg-white overflow-hidden">
       <ScrollParallax speed={0.15} className="absolute inset-0">
         <NewsBackground />
       </ScrollParallax>
       <div className="relative z-10 max-w-7xl mx-auto px-6">
-        <ScrollParallax speed={0.1}>
-          <div className="text-center mb-16">
-            <p className="text-[#C8A951] text-sm font-semibold tracking-widest uppercase mb-3">
+        <AppleReveal direction="up">
+          <div className="text-center mb-24">
+            <p className="text-[#C8A951] text-sm font-semibold tracking-[0.2em] uppercase mb-4">
               Latest News
             </p>
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-[#061a3a] max-w-3xl mx-auto leading-tight">
-              Stay Updated with DICC
+            <h2 className="text-4xl md:text-6xl lg:text-7xl font-bold text-[#061a3a] max-w-4xl mx-auto leading-[1.1] tracking-tight">
+              Stay Updated
             </h2>
           </div>
-        </ScrollParallax>
+        </AppleReveal>
 
-        <div className="grid md:grid-cols-3 gap-8">
-          {news.map((item, i) => (
-            <ScrollParallax key={item.title} speed={0.06 + i * 0.03}>
-              <CursorParallax speed={8}>
-                <a
-                  href={item.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="group p-7 rounded-2xl border border-gray-100 hover:border-[#C8A951]/30 bg-white/80 backdrop-blur-sm hover:shadow-xl hover:shadow-[#C8A951]/5 transition-all duration-500 hover:-translate-y-1 block h-full"
-                >
-                  <span
-                    className={`inline-block px-3 py-1 rounded-full text-xs font-semibold ${item.categoryColor}`}
-                  >
+        <AppleStagger className="grid md:grid-cols-3 gap-10" stagger={0.12} direction="up" distance={50}>
+          {news.map((item) => (
+            <CursorParallax key={item.title} speed={6}>
+              <a
+                href={item.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group block h-full"
+              >
+                <div className="p-8 rounded-3xl bg-[#f2f2f5] hover:bg-[#061a3a] transition-all duration-700 h-full">
+                  <span className={`inline-block px-3 py-1 rounded-full text-xs font-semibold ${item.categoryColor} group-hover:bg-[#C8A951]/20 group-hover:text-[#C8A951] transition-colors duration-700`}>
                     {item.category}
                   </span>
-                  <h3 className="mt-4 text-lg font-bold text-[#061a3a] group-hover:text-[#C8A951] transition-colors leading-snug">
+                  <h3 className="mt-5 text-xl font-bold text-[#061a3a] group-hover:text-white transition-colors duration-700 leading-snug">
                     {item.title}
                   </h3>
-                  <p className="mt-2 text-sm text-[#848484]">{item.date}</p>
-                  <p className="mt-3 text-sm text-[#848484] leading-relaxed line-clamp-3">
+                  <p className="mt-2 text-sm text-[#848484] group-hover:text-white/40 transition-colors duration-700">{item.date}</p>
+                  <p className="mt-4 text-[#848484] group-hover:text-white/50 leading-relaxed line-clamp-3 transition-colors duration-700">
                     {item.excerpt}
                   </p>
-                </a>
-              </CursorParallax>
-            </ScrollParallax>
+                  <div className="mt-6 text-[#C8A951] text-sm font-medium opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                    Read more &rarr;
+                  </div>
+                </div>
+              </a>
+            </CursorParallax>
           ))}
-        </div>
+        </AppleStagger>
 
-        <ScrollParallax speed={0.05}>
-          <div className="text-center mt-12">
+        <AppleReveal delay={0.3}>
+          <div className="text-center mt-16">
             <a
               href="https://www.dicc.um.edu.my/category/news/"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 text-[#192f59] font-semibold hover:text-[#C8A951] transition-colors group"
+              className="inline-flex items-center gap-2 text-[#192f59] text-lg font-medium hover:text-[#C8A951] transition-colors group"
             >
               View All News
               <svg className="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
@@ -97,7 +99,7 @@ export default function News() {
               </svg>
             </a>
           </div>
-        </ScrollParallax>
+        </AppleReveal>
       </div>
     </section>
   );
