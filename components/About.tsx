@@ -68,7 +68,7 @@ export default function About() {
         {/* Apple-style feature cards - clean, minimal */}
         <AppleStagger className="grid md:grid-cols-3 gap-10" stagger={0.15} direction="up" distance={50}>
           {features.map((feature) => (
-            <CursorParallax key={feature.title} speed={6}>
+            <CursorParallax key={feature.title} speed={20}>
               <div className="group p-10 rounded-3xl bg-[#f2f2f5] hover:bg-[#061a3a] transition-all duration-700 h-full">
                 <div className="w-16 h-16 rounded-2xl bg-[#061a3a] group-hover:bg-[#C8A951] flex items-center justify-center text-[#C8A951] group-hover:text-[#061a3a] mb-8 transition-all duration-700">
                   {feature.icon}

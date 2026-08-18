@@ -26,7 +26,7 @@ export default function VisionMission() {
 
         <div className="grid md:grid-cols-2 gap-10 max-w-5xl mx-auto">
           <AppleReveal direction="left" delay={0}>
-            <CursorParallax speed={8}>
+            <CursorParallax speed={25}>
               <div className="p-12 rounded-[2rem] bg-white shadow-xl shadow-black/[0.03] h-full">
                 <div className="text-[#C8A951] text-xs font-bold tracking-[0.25em] uppercase mb-6">
                   Our Vision
@@ -39,7 +39,7 @@ export default function VisionMission() {
           </AppleReveal>
 
           <AppleReveal direction="right" delay={0.1}>
-            <CursorParallax speed={8}>
+            <CursorParallax speed={25}>
               <div className="p-12 rounded-[2rem] bg-white shadow-xl shadow-black/[0.03] h-full">
                 <div className="text-[#C8A951] text-xs font-bold tracking-[0.25em] uppercase mb-6">
                   Our Mission

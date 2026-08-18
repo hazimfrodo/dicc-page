@@ -22,10 +22,28 @@ export default function Hero() {
   const [loaded, setLoaded] = useState(false);
   const heroRef = useRef<HTMLDivElement>(null);
   const contentRef = useRef<HTMLDivElement>(null);
+  const badgeRef = useRef<HTMLDivElement>(null);
+  const titleRef = useRef<HTMLHeadingElement>(null);
+  const subtitleRef = useRef<HTMLParagraphElement>(null);
+  const ctaRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const timer = setTimeout(() => setLoaded(true), 300);
     return () => clearTimeout(timer);
+  }, []);
+
+  // Cursor parallax for hero elements
+  useEffect(() => {
+    const handleMouse = (e: MouseEvent) => {
+      const x = (e.clientX - window.innerWidth / 2) / window.innerWidth;
+      const y = (e.clientY - window.innerHeight / 2) / window.innerHeight;
+      if (badgeRef.current) gsap.to(badgeRef.current, { x: x * 40, y: y * 30, duration: 1, ease: "power2.out" });
+      if (titleRef.current) gsap.to(titleRef.current, { x: x * 25, y: y * 20, duration: 1, ease: "power2.out" });
+      if (subtitleRef.current) gsap.to(subtitleRef.current, { x: x * 15, y: y * 12, duration: 1, ease: "power2.out" });
+      if (ctaRef.current) gsap.to(ctaRef.current, { x: x * 20, y: y * 15, duration: 1, ease: "power2.out" });
+    };
+    window.addEventListener("mousemove", handleMouse);
+    return () => window.removeEventListener("mousemove", handleMouse);
   }, []);
 
   // Apple-style scroll reveal
@@ -52,7 +70,7 @@ export default function Hero() {
   return (
     <section ref={heroRef} className="relative h-[110vh] overflow-hidden">
       {/* Three.js Canvas Background */}
-      <CursorParallax speed={-30} className="absolute inset-0">
+      <CursorParallax speed={-60} className="absolute inset-0">
         <HPCScene className="w-full h-full" />
       </CursorParallax>
 
@@ -64,6 +82,7 @@ export default function Hero() {
       <div ref={contentRef} className="relative z-10 h-screen flex flex-col items-center justify-center px-6 text-center max-w-5xl mx-auto">
         {/* Badge */}
         <div
+          ref={badgeRef}
           className={`transition-all duration-1000 delay-300 ${
             loaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
           }`}
@@ -76,6 +95,7 @@ export default function Hero() {
 
         {/* Main heading - Apple large type */}
         <h1
+          ref={titleRef}
           className={`text-5xl md:text-7xl lg:text-[5.5rem] font-bold text-white leading-[1.05] tracking-tight drop-shadow-2xl transition-all duration-1000 delay-500 ${
             loaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
           }`}
@@ -87,6 +107,7 @@ export default function Hero() {
 
         {/* Subtitle */}
         <p
+          ref={subtitleRef}
           className={`mt-7 text-xl md:text-2xl text-white/80 max-w-2xl leading-relaxed font-light transition-all duration-1000 delay-700 drop-shadow-lg ${
             loaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
           }`}
@@ -97,6 +118,7 @@ export default function Hero() {
 
         {/* CTAs */}
         <div
+          ref={ctaRef}
           className={`mt-12 flex flex-wrap items-center justify-center gap-5 transition-all duration-1000 delay-[900ms] ${
             loaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
           }`}

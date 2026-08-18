@@ -19,7 +19,7 @@ export default function ParallaxDivider() {
       <div className="absolute inset-0 bg-[#0d1927]/70" />
 
       <div className="relative z-10 h-full flex items-center justify-center">
-        <CursorParallax speed={15}>
+        <CursorParallax speed={40}>
           <AppleReveal direction="scale" distance={20}>
             <div className="text-center px-6">
               <h2 className="text-4xl md:text-6xl lg:text-7xl font-bold text-white leading-[1.1] tracking-tight">

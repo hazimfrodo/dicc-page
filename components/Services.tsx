@@ -100,7 +100,7 @@ export default function Services() {
 
         <AppleStagger className="grid md:grid-cols-2 lg:grid-cols-3 gap-8" stagger={0.1} direction="up" distance={40}>
           {services.map((service) => (
-            <CursorParallax key={service.title} speed={5}>
+            <CursorParallax key={service.title} speed={18}>
               <a
                 href={service.href}
                 target="_blank"

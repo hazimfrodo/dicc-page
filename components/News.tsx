@@ -58,7 +58,7 @@ export default function News() {
 
         <AppleStagger className="grid md:grid-cols-3 gap-10" stagger={0.12} direction="up" distance={50}>
           {news.map((item) => (
-            <CursorParallax key={item.title} speed={6}>
+            <CursorParallax key={item.title} speed={20}>
               <a
                 href={item.href}
                 target="_blank"

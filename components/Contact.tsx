@@ -56,7 +56,7 @@ export default function Contact() {
 
         <AppleStagger className="grid md:grid-cols-3 gap-10 max-w-5xl mx-auto" stagger={0.12} direction="up" distance={40}>
           {contactInfo.map((item) => (
-            <CursorParallax key={item.title} speed={6}>
+            <CursorParallax key={item.title} speed={20}>
               <div className="p-10 rounded-[2rem] bg-white shadow-xl shadow-black/[0.03] h-full">
                 <div className="w-16 h-16 rounded-2xl bg-[#061a3a] flex items-center justify-center text-[#C8A951] mb-7">
                   {item.icon}
