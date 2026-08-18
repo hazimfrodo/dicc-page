@@ -12,36 +12,36 @@ export interface Connection {
 }
 
 const servers: SceneObject[] = [
-  { id: "s1", type: "server", organicPosition: [1.2, 0.3, -0.5], gridPosition: [-2.5, 0, -1] },
-  { id: "s2", type: "server", organicPosition: [-0.8, -0.2, 0.8], gridPosition: [-2.5, 0, 1] },
-  { id: "s3", type: "server", organicPosition: [0.3, 0.5, 1.2], gridPosition: [0, 0, -1] },
-  { id: "s4", type: "server", organicPosition: [-1.5, 0.1, -1.0], gridPosition: [0, 0, 1] },
-  { id: "s5", type: "server", organicPosition: [1.8, -0.4, 0.5], gridPosition: [2.5, 0, -1] },
-  { id: "s6", type: "server", organicPosition: [-0.3, 0.6, -1.5], gridPosition: [2.5, 0, 1] },
+  { id: "s1", type: "server", organicPosition: [1.5, 0.3, -0.5], gridPosition: [-2.8, 0, -1] },
+  { id: "s2", type: "server", organicPosition: [-1.0, -0.2, 0.9], gridPosition: [-2.8, 0, 1] },
+  { id: "s3", type: "server", organicPosition: [0.4, 0.5, 1.4], gridPosition: [0, 0, -1] },
+  { id: "s4", type: "server", organicPosition: [-1.8, 0.1, -1.2], gridPosition: [0, 0, 1] },
+  { id: "s5", type: "server", organicPosition: [2.2, -0.4, 0.6], gridPosition: [2.8, 0, -1] },
+  { id: "s6", type: "server", organicPosition: [-0.4, 0.6, -1.8], gridPosition: [2.8, 0, 1] },
 ];
 
 const gpus: SceneObject[] = [
-  { id: "g1", type: "gpu", organicPosition: [2.0, -0.8, -1.2], gridPosition: [-3.5, -1.2, -1.5] },
-  { id: "g2", type: "gpu", organicPosition: [1.5, -1.0, 0.0], gridPosition: [-3.5, -1.2, -0.5] },
-  { id: "g3", type: "gpu", organicPosition: [-1.8, -0.9, 1.5], gridPosition: [-3.5, -1.2, 0.5] },
-  { id: "g4", type: "gpu", organicPosition: [-2.2, -0.7, 0.0], gridPosition: [-3.5, -1.2, 1.5] },
-  { id: "g5", type: "gpu", organicPosition: [0.8, -1.1, 2.0], gridPosition: [-1, -1.2, -1.5] },
-  { id: "g6", type: "gpu", organicPosition: [-0.5, -1.2, 1.8], gridPosition: [-1, -1.2, 1.5] },
-  { id: "g7", type: "gpu", organicPosition: [2.5, -0.6, 1.2], gridPosition: [1.5, -1.2, -1.5] },
-  { id: "g8", type: "gpu", organicPosition: [0.0, -0.8, -2.0], gridPosition: [1.5, -1.2, 1.5] },
-  { id: "g9", type: "gpu", organicPosition: [-1.2, -1.0, -1.8], gridPosition: [4, -1.2, -1.5] },
-  { id: "g10", type: "gpu", organicPosition: [1.0, -0.9, -1.8], gridPosition: [4, -1.2, 1.5] },
+  { id: "g1", type: "gpu", organicPosition: [2.5, -0.9, -1.4], gridPosition: [-3.8, -1.0, -1.8] },
+  { id: "g2", type: "gpu", organicPosition: [1.8, -1.1, 0.0], gridPosition: [-3.8, -1.0, -0.6] },
+  { id: "g3", type: "gpu", organicPosition: [-2.2, -0.9, 1.8], gridPosition: [-3.8, -1.0, 0.6] },
+  { id: "g4", type: "gpu", organicPosition: [-2.6, -0.7, 0.0], gridPosition: [-3.8, -1.0, 1.8] },
+  { id: "g5", type: "gpu", organicPosition: [1.0, -1.2, 2.4], gridPosition: [-1.2, -1.0, -1.8] },
+  { id: "g6", type: "gpu", organicPosition: [-0.6, -1.3, 2.2], gridPosition: [-1.2, -1.0, 1.8] },
+  { id: "g7", type: "gpu", organicPosition: [3.0, -0.6, 1.4], gridPosition: [1.6, -1.0, -1.8] },
+  { id: "g8", type: "gpu", organicPosition: [0.0, -0.9, -2.4], gridPosition: [1.6, -1.0, 1.8] },
+  { id: "g9", type: "gpu", organicPosition: [-1.5, -1.1, -2.2], gridPosition: [4.2, -1.0, -1.8] },
+  { id: "g10", type: "gpu", organicPosition: [1.2, -1.0, -2.2], gridPosition: [4.2, -1.0, 1.8] },
 ];
 
 const nodes: SceneObject[] = [
-  { id: "n1", type: "node", organicPosition: [3.0, 0.8, -0.5], gridPosition: [-4, 1.2, -2] },
-  { id: "n2", type: "node", organicPosition: [-3.0, 0.5, 1.0], gridPosition: [-4, 1.2, 2] },
-  { id: "n3", type: "node", organicPosition: [0.5, 1.2, 2.5], gridPosition: [-1, 1.2, 2.5] },
-  { id: "n4", type: "node", organicPosition: [-2.5, 0.9, -2.0], gridPosition: [2, 1.2, -2.5] },
-  { id: "n5", type: "node", organicPosition: [2.8, 0.6, 1.8], gridPosition: [2, 1.2, 2.5] },
-  { id: "n6", type: "node", organicPosition: [-1.0, 1.0, -2.8], gridPosition: [5, 1.2, -2] },
-  { id: "n7", type: "node", organicPosition: [3.5, 0.3, 0.8], gridPosition: [5, 1.2, 2] },
-  { id: "n8", type: "node", organicPosition: [-3.5, 0.7, -0.5], gridPosition: [-1, 1.2, -2.5] },
+  { id: "n1", type: "node", organicPosition: [3.8, 0.8, -0.6], gridPosition: [-4.5, 1.2, -2.5] },
+  { id: "n2", type: "node", organicPosition: [-3.5, 0.5, 1.2], gridPosition: [-4.5, 1.2, 2.5] },
+  { id: "n3", type: "node", organicPosition: [0.6, 1.3, 3.0], gridPosition: [-1.2, 1.2, 3.0] },
+  { id: "n4", type: "node", organicPosition: [-3.0, 0.9, -2.4], gridPosition: [2.5, 1.2, -3.0] },
+  { id: "n5", type: "node", organicPosition: [3.5, 0.6, 2.0], gridPosition: [2.5, 1.2, 3.0] },
+  { id: "n6", type: "node", organicPosition: [-1.2, 1.0, -3.2], gridPosition: [5.5, 1.2, -2.5] },
+  { id: "n7", type: "node", organicPosition: [4.2, 0.3, 1.0], gridPosition: [5.5, 1.2, 2.5] },
+  { id: "n8", type: "node", organicPosition: [-4.0, 0.7, -0.6], gridPosition: [-1.2, 1.2, -3.0] },
 ];
 
 export const sceneObjects: SceneObject[] = [...servers, ...gpus, ...nodes];
