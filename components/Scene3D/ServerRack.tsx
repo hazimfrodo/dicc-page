@@ -38,13 +38,13 @@ function RackUnit({ y, index }: { y: number; index: number }) {
       ))}
 
       {/* Status LEDs */}
-      {[0.15, 0.17, 0.19].map((x, i) => (
+      {[0.13, 0.15, 0.17].map((x, i) => (
         <mesh
           key={i}
           ref={(el) => { if (el) ledRefs.current[i] = el; }}
           position={[x, 0, 0.208]}
         >
-          <boxGeometry args={[0.012, 0.012, 0.004]} />
+          <boxGeometry args={[0.01, 0.01, 0.004]} />
           <meshStandardMaterial
             color={i === 0 ? "#4CAF50" : i === 1 ? "#2196F3" : "#FFC107"}
             emissive={i === 0 ? "#4CAF50" : i === 1 ? "#2196F3" : "#FFC107"}
