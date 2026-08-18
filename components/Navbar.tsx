@@ -28,22 +28,22 @@ export default function Navbar() {
           : "bg-transparent"
       }`}
     >
-      <div className="max-w-7xl mx-auto px-6 h-24 flex items-center justify-between">
+      <div className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
         {/* Logo */}
         <a href="#" className="flex items-center gap-3 group">
           <Image
             src="/um-logo.webp"
             alt="UM Logo"
-            width={64}
-            height={64}
+            width={44}
+            height={44}
             className="rounded"
           />
-          <div className={`w-px h-14 ${scrolled ? "bg-gray-300" : "bg-white/30"}`} />
+          <div className={`w-px h-8 ${scrolled ? "bg-gray-300" : "bg-white/30"}`} />
           <Image
             src="/dicc-logo.png"
             alt="DICC Logo"
-            width={40}
-            height={40}
+            width={32}
+            height={32}
             className="rounded"
           />
           <span
