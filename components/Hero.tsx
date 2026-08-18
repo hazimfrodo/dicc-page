@@ -57,7 +57,8 @@ export default function Hero() {
       </CursorParallax>
 
       {/* Gradient overlays - Apple-style clean gradients */}
-      <div className="absolute inset-0 bg-gradient-to-b from-[#0d1927]/40 via-transparent to-[#0d1927]/90" />
+      <div className="absolute inset-0 bg-gradient-to-b from-[#0d1927]/60 via-[#0d1927]/30 to-[#0d1927]/90" />
+      <div className="absolute inset-0 bg-[#0d1927]/40" />
 
       {/* Content - Apple-style centered, large type */}
       <div ref={contentRef} className="relative z-10 h-screen flex flex-col items-center justify-center px-6 text-center max-w-5xl mx-auto">
@@ -67,7 +68,7 @@ export default function Hero() {
             loaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
           }`}
         >
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 backdrop-blur-md border border-white/10 mb-8">
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/15 backdrop-blur-md border border-white/20 mb-8">
             <Image src="/dicc-logo.png" alt="DICC" width={20} height={20} className="rounded" />
             <span className="text-white/80 text-xs font-medium tracking-wider uppercase">Universiti Malaya</span>
           </div>
@@ -75,7 +76,7 @@ export default function Hero() {
 
         {/* Main heading - Apple large type */}
         <h1
-          className={`text-5xl md:text-7xl lg:text-[5.5rem] font-bold text-white leading-[1.05] tracking-tight transition-all duration-1000 delay-500 ${
+          className={`text-5xl md:text-7xl lg:text-[5.5rem] font-bold text-white leading-[1.05] tracking-tight drop-shadow-2xl transition-all duration-1000 delay-500 ${
             loaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
           }`}
         >
@@ -86,7 +87,7 @@ export default function Hero() {
 
         {/* Subtitle */}
         <p
-          className={`mt-7 text-xl md:text-2xl text-white/50 max-w-2xl leading-relaxed font-light transition-all duration-1000 delay-700 ${
+          className={`mt-7 text-xl md:text-2xl text-white/80 max-w-2xl leading-relaxed font-light transition-all duration-1000 delay-700 drop-shadow-lg ${
             loaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
           }`}
         >
