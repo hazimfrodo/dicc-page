@@ -34,8 +34,8 @@ export default function Navbar() {
           <Image
             src="/um-logo.webp"
             alt="UM Logo"
-            width={44}
-            height={44}
+            width={56}
+            height={56}
             className="rounded"
           />
           <div className={`w-px h-8 ${scrolled ? "bg-gray-300" : "bg-white/30"}`} />
