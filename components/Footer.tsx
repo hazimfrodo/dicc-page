@@ -59,7 +59,8 @@ export default function Footer() {
               alt="DICC Logo"
               width={60}
               height={60}
-              className="rounded opacity-80"
+              className="rounded"
+              style={{ filter: "brightness(0) invert(1)" }}
             />
           </div>
 
