@@ -69,17 +69,17 @@ export default function StatsBar() {
         <StatsBackground />
       </ScrollParallax>
       <div className="relative z-10 max-w-7xl mx-auto px-6">
-        <AppleStagger className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-12" stagger={0.08} direction="up" distance={30}>
+        <AppleStagger className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8 md:gap-6" stagger={0.08} direction="up" distance={30}>
           {stats.map((stat) => (
-            <div key={stat.label} className="text-center">
-              <div className="text-4xl md:text-5xl lg:text-6xl font-bold text-[#C8A951] tracking-tight">
+            <div key={stat.label} className="text-center px-2">
+              <div className="text-2xl md:text-3xl lg:text-4xl font-bold text-[#C8A951] tracking-tight">
                 <AnimatedCounter
                   value={stat.value}
                   suffix={stat.suffix}
                   decimals={stat.decimals}
                 />
               </div>
-              <p className="mt-3 text-base text-white/40 font-light">
+              <p className="mt-2 text-xs md:text-sm text-white/40 font-light leading-tight">
                 {stat.label}
               </p>
             </div>
