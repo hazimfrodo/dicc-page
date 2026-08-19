@@ -65,12 +65,12 @@ function AnimatedCounter({
 
 export default function StatsBar() {
   return (
-    <section className="relative bg-[#0d1927] py-24 md:py-32 overflow-hidden">
+    <section className="relative bg-[#0d1927] py-10 md:py-14 overflow-hidden">
       <ScrollParallax speed={0.2} className="absolute inset-0">
         <StatsBackground />
       </ScrollParallax>
       <div className="relative z-10 max-w-7xl mx-auto px-6">
-        <AppleStagger className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-7 gap-16 lg:gap-14" stagger={0.06} direction="up" distance={30}>
+        <AppleStagger className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-7 gap-20 lg:gap-16" stagger={0.06} direction="up" distance={30}>
           {stats.map((stat) => (
             <div key={stat.label} className="text-center px-1 min-w-0">
               <div className="text-3xl md:text-4xl lg:text-5xl font-bold text-[#C8A951] tracking-tight whitespace-nowrap">
