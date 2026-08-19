@@ -73,7 +73,7 @@ export default function StatsBar() {
         <AppleStagger className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-7 gap-6 lg:gap-4" stagger={0.06} direction="up" distance={30}>
           {stats.map((stat) => (
             <div key={stat.label} className="text-center px-1 min-w-0">
-              <div className="text-2xl md:text-3xl lg:text-4xl font-bold text-[#C8A951] tracking-tight whitespace-nowrap">
+              <div className="text-3xl md:text-4xl lg:text-5xl font-bold text-[#C8A951] tracking-tight whitespace-nowrap">
                 {"display" in stat && stat.display ? (
                   <span>{stat.display}</span>
                 ) : (
@@ -84,7 +84,7 @@ export default function StatsBar() {
                   />
                 )}
               </div>
-              <p className="mt-2 text-xs md:text-sm text-white/40 font-light leading-tight">
+              <p className="mt-2 text-sm md:text-base text-white/40 font-light leading-tight">
                 {stat.icon} {stat.label}
               </p>
             </div>
