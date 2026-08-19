@@ -68,7 +68,7 @@ export default function StatsBar() {
       <ScrollParallax speed={0.2} className="absolute inset-0">
         <StatsBackground />
       </ScrollParallax>
-      <div className="relative z-10 max-w-[1400px] mx-auto px-6">
+      <div className="relative z-10 max-w-[1400px] mx-auto px-2">
         <div className="flex flex-nowrap justify-between items-start gap-4">
           {stats.map((stat) => (
             <div key={stat.label} className="text-center flex-shrink-0">
