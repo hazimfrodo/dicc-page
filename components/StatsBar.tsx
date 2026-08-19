@@ -11,8 +11,8 @@ const StatsBackground = dynamic(() => import("./Scene3D/StatsBackground"), {
 
 const stats = [
   { label: "Active Researchers", value: 300, suffix: "+" },
-  { label: "CPU Compute (FP64)", value: 85.10, suffix: " TFLOPS", decimals: 2 },
-  { label: "GPU Compute (FP16)", value: 5.25, suffix: " PFLOPS", decimals: 2 },
+  { label: "CPU Compute (FP64)", value: 85.10, suffix: " TF", decimals: 2 },
+  { label: "GPU Compute (FP16)", value: 5.25, suffix: " PF", decimals: 2 },
   { label: "Storage Capacity", value: 990, suffix: "TB+" },
   { label: "Availability", value: 24, suffix: "/7" },
   { label: "Average Uptime", value: 99.90, suffix: "%", decimals: 2 },
