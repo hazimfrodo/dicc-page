@@ -69,8 +69,8 @@ export default function StatsBar() {
       <ScrollParallax speed={0.2} className="absolute inset-0">
         <StatsBackground />
       </ScrollParallax>
-      <div className="relative z-10 max-w-7xl mx-auto px-6">
-        <AppleStagger className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-7 gap-28 lg:gap-24" stagger={0.06} direction="up" distance={30}>
+      <div className="relative z-10 w-full max-w-7xl mx-auto px-6">
+        <AppleStagger className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-7 gap-8 lg:gap-6" stagger={0.06} direction="up" distance={30}>
           {stats.map((stat) => (
             <div key={stat.label} className="text-center px-1 min-w-0">
               <div className="text-3xl md:text-4xl lg:text-5xl font-bold text-[#C8A951] tracking-tight whitespace-nowrap">
