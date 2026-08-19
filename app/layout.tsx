@@ -19,6 +19,9 @@ export const metadata: Metadata = {
     "Research Computing",
     "DICC",
   ],
+  icons: {
+    icon: "/dicc-logo.png",
+  },
   openGraph: {
     title: "Data-Intensive Computing Centre | Universiti Malaya",
     description:
