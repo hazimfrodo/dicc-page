@@ -15,7 +15,6 @@ const stats = [
   { label: "Storage Capacity", value: 990, suffix: "TB+", icon: "💾" },
   { label: "Availability", value: 24, suffix: "/7", icon: "🌐" },
   { label: "Average Uptime", value: 99.8, suffix: "%", decimals: 1, icon: "📊" },
-  { label: "Accessibility", value: 1, suffix: "", icon: "🌍", display: "Worldwide" },
 ];
 
 function AnimatedCounter({
