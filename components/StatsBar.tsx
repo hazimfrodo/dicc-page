@@ -10,12 +10,13 @@ const StatsBackground = dynamic(() => import("./Scene3D/StatsBackground"), {
 });
 
 const stats = [
-  { label: "Active Researchers", value: 300, suffix: "+" },
-  { label: "CPU Compute (FP64)", value: 85.10, suffix: " TF", decimals: 2 },
-  { label: "GPU Compute (FP16)", value: 5.25, suffix: " PF", decimals: 2 },
-  { label: "Storage Capacity", value: 990, suffix: "TB+" },
-  { label: "Availability", value: 24, suffix: "/7" },
-  { label: "Average Uptime", value: 99.90, suffix: "%", decimals: 2 },
+  { label: "Active Researchers", value: 300, suffix: "+", icon: "👥" },
+  { label: "CPU Compute (FP64)", value: 85.10, suffix: " TF", decimals: 2, icon: "⚡" },
+  { label: "GPU Compute (FP16)", value: 5.25, suffix: " PF", decimals: 2, icon: "🚀" },
+  { label: "Storage Capacity", value: 990, suffix: "TB+", icon: "💾" },
+  { label: "Availability", value: 24, suffix: "/7", icon: "🌐" },
+  { label: "Average Uptime", value: 99.90, suffix: "%", decimals: 2, icon: "📊" },
+  { label: "Accessibility", value: 1, suffix: "", icon: "🌍", display: "Worldwide" },
 ];
 
 function AnimatedCounter({
@@ -69,17 +70,22 @@ export default function StatsBar() {
         <StatsBackground />
       </ScrollParallax>
       <div className="relative z-10 max-w-7xl mx-auto px-6">
-        <AppleStagger className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-10 lg:gap-8" stagger={0.08} direction="up" distance={30}>
+        <AppleStagger className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-7 gap-8 lg:gap-6" stagger={0.06} direction="up" distance={30}>
           {stats.map((stat) => (
-            <div key={stat.label} className="text-center px-2">
-              <div className="text-3xl md:text-4xl lg:text-5xl font-bold text-[#C8A951] tracking-tight whitespace-nowrap">
-                <AnimatedCounter
-                  value={stat.value}
-                  suffix={stat.suffix}
-                  decimals={stat.decimals}
-                />
+            <div key={stat.label} className="text-center px-1">
+              <div className="text-lg mb-1">{stat.icon}</div>
+              <div className="text-2xl md:text-3xl lg:text-4xl font-bold text-[#C8A951] tracking-tight whitespace-nowrap">
+                {"display" in stat && stat.display ? (
+                  <span>{stat.display}</span>
+                ) : (
+                  <AnimatedCounter
+                    value={stat.value}
+                    suffix={stat.suffix}
+                    decimals={"decimals" in stat ? stat.decimals : 0}
+                  />
+                )}
               </div>
-              <p className="mt-2 text-xs md:text-sm text-white/40 font-light leading-tight">
+              <p className="mt-2 text-[10px] md:text-xs text-white/40 font-light leading-tight">
                 {stat.label}
               </p>
             </div>
