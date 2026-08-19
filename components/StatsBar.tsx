@@ -10,10 +10,12 @@ const StatsBackground = dynamic(() => import("./Scene3D/StatsBackground"), {
 });
 
 const stats = [
-  { label: "Active Researchers", value: 500, suffix: "+" },
-  { label: "Computing Power", value: 2.4, suffix: " PF", decimals: 1 },
-  { label: "Storage Capacity", value: 50, suffix: "PB+" },
-  { label: "Support Available", value: 24, suffix: "/7" },
+  { label: "Active Researchers", value: 300, suffix: "+" },
+  { label: "CPU Compute (FP64)", value: 85.10, suffix: " TFLOPS", decimals: 2 },
+  { label: "GPU Compute (FP16)", value: 5.25, suffix: " PFLOPS", decimals: 2 },
+  { label: "Storage Capacity", value: 990, suffix: "TB+" },
+  { label: "Availability", value: 24, suffix: "/7" },
+  { label: "Average Uptime", value: 99.90, suffix: "%", decimals: 2 },
 ];
 
 function AnimatedCounter({
@@ -67,7 +69,7 @@ export default function StatsBar() {
         <StatsBackground />
       </ScrollParallax>
       <div className="relative z-10 max-w-7xl mx-auto px-6">
-        <AppleStagger className="grid grid-cols-2 md:grid-cols-4 gap-12" stagger={0.12} direction="up" distance={30}>
+        <AppleStagger className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-12" stagger={0.08} direction="up" distance={30}>
           {stats.map((stat) => (
             <div key={stat.label} className="text-center">
               <div className="text-4xl md:text-5xl lg:text-6xl font-bold text-[#C8A951] tracking-tight">
