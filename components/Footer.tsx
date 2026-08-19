@@ -57,8 +57,8 @@ export default function Footer() {
             <Image
               src="/dicc-logo.png"
               alt="DICC Logo"
-              width={60}
-              height={60}
+              width={40}
+              height={40}
               className="rounded"
               style={{ filter: "brightness(0) invert(1)" }}
             />
