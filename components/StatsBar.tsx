@@ -3,7 +3,6 @@
 import { useEffect, useRef, useState } from "react";
 import dynamic from "next/dynamic";
 import { ScrollParallax } from "./Parallax";
-import { AppleReveal, AppleStagger } from "./AppleReveal";
 
 const StatsBackground = dynamic(() => import("./Scene3D/StatsBackground"), {
   ssr: false,
@@ -69,10 +68,10 @@ export default function StatsBar() {
       <ScrollParallax speed={0.2} className="absolute inset-0">
         <StatsBackground />
       </ScrollParallax>
-      <div className="relative z-10 w-full max-w-7xl mx-auto px-6">
-        <AppleStagger className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-7 gap-8 lg:gap-6" stagger={0.06} direction="up" distance={30}>
+      <div className="relative z-10 max-w-[1400px] mx-auto px-6">
+        <div className="flex flex-wrap justify-center items-start gap-x-12 gap-y-8">
           {stats.map((stat) => (
-            <div key={stat.label} className="text-center px-1 min-w-0">
+            <div key={stat.label} className="text-center flex-shrink-0">
               <div className="text-3xl md:text-4xl lg:text-5xl font-bold text-[#C8A951] tracking-tight whitespace-nowrap">
                 {"display" in stat && stat.display ? (
                   <span>{stat.display}</span>
@@ -84,12 +83,12 @@ export default function StatsBar() {
                   />
                 )}
               </div>
-              <p className="mt-2 text-base md:text-xl text-white/40 font-light leading-tight">
+              <p className="mt-2 text-base md:text-xl text-white/40 font-light leading-tight whitespace-nowrap">
                 {stat.icon} {stat.label}
               </p>
             </div>
           ))}
-        </AppleStagger>
+        </div>
       </div>
     </section>
   );
