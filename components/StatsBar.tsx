@@ -83,7 +83,7 @@ export default function StatsBar() {
                   />
                 )}
               </div>
-              <p className="mt-2 text-xs md:text-sm lg:text-base text-white/40 font-light leading-tight whitespace-nowrap">
+              <p className="mt-2 text-xs md:text-sm lg:text-base text-white/70 font-medium leading-tight whitespace-nowrap">
                 {stat.icon} {stat.label}
               </p>
             </div>
