@@ -46,7 +46,7 @@ export default function Footer() {
     <footer className="bg-[#061a3a] py-16">
       <div className="max-w-7xl mx-auto px-6">
         <div className="flex flex-col md:flex-row items-center justify-between gap-8">
-          <div className="flex items-center gap-3">
+          <div className="flex items-center gap-4">
             <Image
               src="/um-logo-footer.webp"
               alt="UM Logo"
@@ -54,9 +54,13 @@ export default function Footer() {
               height={96}
               className="rounded opacity-80"
             />
-            <span className="text-white/60 text-sm font-light">
-              DICC Universiti Malaya
-            </span>
+            <Image
+              src="/dicc-logo.png"
+              alt="DICC Logo"
+              width={60}
+              height={60}
+              className="rounded opacity-80"
+            />
           </div>
 
           <p className="text-white/30 text-sm text-center font-light">
