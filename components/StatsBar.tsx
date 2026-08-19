@@ -10,11 +10,11 @@ const StatsBackground = dynamic(() => import("./Scene3D/StatsBackground"), {
 
 const stats = [
   { label: "Active Researchers", value: 300, suffix: "+", icon: "👥" },
-  { label: "CPU Compute (FP64)", value: 85.10, suffix: " TF", decimals: 2, icon: "⚡" },
-  { label: "GPU Compute (FP16)", value: 5.25, suffix: " PF", decimals: 2, icon: "🚀" },
+  { label: "CPU Compute (FP64)", value: 85.1, suffix: " TF", decimals: 1, icon: "⚡" },
+  { label: "GPU Compute (FP16)", value: 5.2, suffix: " PF", decimals: 1, icon: "🚀" },
   { label: "Storage Capacity", value: 990, suffix: "TB+", icon: "💾" },
   { label: "Availability", value: 24, suffix: "/7", icon: "🌐" },
-  { label: "Average Uptime", value: 99.90, suffix: "%", decimals: 2, icon: "📊" },
+  { label: "Average Uptime", value: 99.8, suffix: "%", decimals: 1, icon: "📊" },
   { label: "Accessibility", value: 1, suffix: "", icon: "🌍", display: "Worldwide" },
 ];
 
