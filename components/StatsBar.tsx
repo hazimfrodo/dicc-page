@@ -70,10 +70,10 @@ export default function StatsBar() {
         <StatsBackground />
       </ScrollParallax>
       <div className="relative z-10 max-w-7xl mx-auto px-6">
-        <AppleStagger className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-7 gap-10 lg:gap-8" stagger={0.06} direction="up" distance={30}>
+        <AppleStagger className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-7 gap-6 lg:gap-4" stagger={0.06} direction="up" distance={30}>
           {stats.map((stat) => (
-            <div key={stat.label} className="text-center px-1">
-              <div className="text-3xl md:text-4xl lg:text-5xl font-bold text-[#C8A951] tracking-tight whitespace-nowrap">
+            <div key={stat.label} className="text-center px-1 min-w-0">
+              <div className="text-xl md:text-2xl lg:text-3xl font-bold text-[#C8A951] tracking-tight whitespace-nowrap">
                 {"display" in stat && stat.display ? (
                   <span>{stat.display}</span>
                 ) : (
@@ -84,7 +84,7 @@ export default function StatsBar() {
                   />
                 )}
               </div>
-              <p className="mt-2 text-[10px] md:text-xs text-white/40 font-light leading-tight">
+              <p className="mt-1 text-[9px] md:text-[11px] text-white/40 font-light leading-tight">
                 {stat.icon} {stat.label}
               </p>
             </div>
