@@ -69,7 +69,7 @@ export default function StatsBar() {
         <StatsBackground />
       </ScrollParallax>
       <div className="relative z-10 max-w-[1400px] mx-auto px-2">
-        <div className="flex flex-nowrap justify-between items-start gap-10">
+        <div className="flex flex-wrap md:flex-nowrap justify-center md:justify-between items-start gap-x-6 gap-y-6">
           {stats.map((stat) => (
             <div key={stat.label} className="text-center flex-shrink-0">
               <div className="text-3xl md:text-4xl lg:text-5xl font-bold text-[#C8A951] tracking-tight whitespace-nowrap">
