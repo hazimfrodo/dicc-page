@@ -1,7 +1,12 @@
 "use client";
 
+import dynamic from "next/dynamic";
 import { ScrollParallax, CursorParallax } from "./Parallax";
 import { AppleReveal, AppleStagger } from "./AppleReveal";
+
+const ContactBackground = dynamic(() => import("./Scene3D/ContactBackground"), {
+  ssr: false,
+});
 
 const contactInfo = [
   {
@@ -44,7 +49,8 @@ const contactInfo = [
 
 export default function Contact() {
   return (
-    <section id="contact" className="py-32 md:py-44 bg-[#f2f2f5]">
+    <section id="contact" className="relative py-32 md:py-44 bg-[#f2f2f5] overflow-hidden">
+      <ContactBackground />
       <div className="max-w-7xl mx-auto px-6">
         <AppleReveal direction="up">
           <div className="text-center mb-24">

@@ -72,15 +72,11 @@ export default function StatsBar() {
           {stats.map((stat) => (
             <div key={stat.label} className="text-center flex-shrink-0">
               <div className="text-3xl md:text-4xl lg:text-5xl font-bold text-[#C8A951] tracking-tight whitespace-nowrap">
-                {"display" in stat && stat.display ? (
-                  <span>{stat.display}</span>
-                ) : (
-                  <AnimatedCounter
-                    value={stat.value}
-                    suffix={stat.suffix}
-                    decimals={"decimals" in stat ? stat.decimals : 0}
-                  />
-                )}
+                <AnimatedCounter
+                  value={stat.value}
+                  suffix={stat.suffix}
+                  decimals={"decimals" in stat ? stat.decimals : 0}
+                />
               </div>
               <p className="mt-2 text-xs md:text-sm lg:text-base text-white/70 font-medium leading-tight whitespace-nowrap">
                 {stat.icon} {stat.label}
