@@ -13,8 +13,10 @@ const navLinks = [
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
+  const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
+    setMounted(true);
     const handleScroll = () => setScrolled(window.scrollY > 50);
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
@@ -23,7 +25,7 @@ export default function Navbar() {
   return (
     <nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-        scrolled
+        mounted && scrolled
           ? "bg-white/80 backdrop-blur-xl shadow-lg shadow-black/5"
           : "bg-transparent"
       }`}
@@ -38,7 +40,7 @@ export default function Navbar() {
             height={68}
             className="rounded"
           />
-          <div className={`w-px h-8 ${scrolled ? "bg-gray-300" : "bg-white/30"}`} />
+          <div className={`w-px h-8 ${mounted && scrolled ? "bg-gray-300" : "bg-white/30"}`} />
           <Image
             src="/dicc-logo.png"
             alt="DICC Logo"
@@ -55,7 +57,7 @@ export default function Navbar() {
               key={link.label}
               href={link.href}
               className={`text-sm font-medium transition-colors duration-300 hover:text-[#C8A951] ${
-                scrolled ? "text-gray-700" : "text-white/80"
+                mounted && scrolled ? "text-gray-700" : "text-white/80"
               }`}
             >
               {link.label}
@@ -75,7 +77,7 @@ export default function Navbar() {
         <button
           onClick={() => setMobileOpen(!mobileOpen)}
           className={`md:hidden p-2 rounded-lg transition-colors ${
-            scrolled ? "text-[#061a3a]" : "text-white"
+            mounted && scrolled ? "text-[#061a3a]" : "text-white"
           }`}
           aria-label="Toggle menu"
         >

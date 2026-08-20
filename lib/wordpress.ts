@@ -123,6 +123,7 @@ export function formatDate(dateStr: string): string {
     year: "numeric",
     month: "long",
     day: "numeric",
+    timeZone: "Asia/Kuala_Lumpur",
   }).format(new Date(dateStr));
 }
 
