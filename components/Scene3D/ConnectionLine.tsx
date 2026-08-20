@@ -22,11 +22,11 @@ export default function ConnectionLine({
   const { color, radius } = useMemo(() => {
     switch (type) {
       case "server-server":
-        return { color: "#7360ff", radius: 0.012 };
+        return { color: "#7360ff", radius: 0.008 };
       case "server-gpu":
-        return { color: "#C8A951", radius: 0.01 };
+        return { color: "#C8A951", radius: 0.007 };
       case "server-node":
-        return { color: "#90CAF9", radius: 0.008 };
+        return { color: "#90CAF9", radius: 0.006 };
     }
   }, [type]);
 
