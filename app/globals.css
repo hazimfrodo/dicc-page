@@ -43,3 +43,127 @@ body {
   -webkit-box-orient: vertical;
   overflow: hidden;
 }
+
+/* WordPress content styles */
+.wp-content h2 {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: #061a3a;
+  margin-top: 2.5rem;
+  margin-bottom: 1rem;
+  line-height: 1.3;
+}
+
+.wp-content h3 {
+  font-size: 1.375rem;
+  font-weight: 700;
+  color: #061a3a;
+  margin-top: 2rem;
+  margin-bottom: 0.75rem;
+  line-height: 1.4;
+}
+
+.wp-content p {
+  margin-bottom: 1.25rem;
+  line-height: 1.8;
+}
+
+.wp-content ul,
+.wp-content ol {
+  margin-bottom: 1.25rem;
+  padding-left: 1.5rem;
+}
+
+.wp-content ul {
+  list-style-type: disc;
+}
+
+.wp-content ol {
+  list-style-type: decimal;
+}
+
+.wp-content li {
+  margin-bottom: 0.5rem;
+  line-height: 1.7;
+}
+
+.wp-content strong {
+  font-weight: 600;
+  color: #061a3a;
+}
+
+.wp-content em {
+  font-style: italic;
+}
+
+.wp-content a {
+  color: #C8A951;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  transition: color 0.2s;
+}
+
+.wp-content a:hover {
+  color: #A8893D;
+}
+
+.wp-content code {
+  font-family: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace;
+  font-size: 0.875em;
+  background: #1a1a2e;
+  color: #C8A951;
+  padding: 0.15em 0.4em;
+  border-radius: 4px;
+}
+
+.wp-content pre {
+  background: #0d1927;
+  border-radius: 12px;
+  padding: 1.5rem;
+  overflow-x: auto;
+  margin-bottom: 1.5rem;
+  border: 1px solid #192f59;
+}
+
+.wp-content pre code {
+  background: none;
+  color: #e2e8f0;
+  padding: 0;
+  font-size: 0.875rem;
+  line-height: 1.6;
+}
+
+.wp-content img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 12px;
+  margin: 1.5rem 0;
+}
+
+.wp-content blockquote {
+  border-left: 4px solid #C8A951;
+  padding-left: 1.25rem;
+  margin: 1.5rem 0;
+  font-style: italic;
+  color: #848484;
+}
+
+.wp-content hr {
+  border: none;
+  border-top: 1px solid #e5e7eb;
+  margin: 2rem 0;
+}
+
+/* Animations */
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+.animate-pulse {
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}

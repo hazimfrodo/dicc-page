@@ -1,12 +1,8 @@
 "use client";
 
-import dynamic from "next/dynamic";
+import Link from "next/link";
 import { ScrollParallax, CursorParallax } from "./Parallax";
 import { AppleReveal, AppleStagger } from "./AppleReveal";
-
-const NewsBackground = dynamic(() => import("./Scene3D/NewsBackground"), {
-  ssr: false,
-});
 
 const news = [
   {
@@ -16,7 +12,7 @@ const news = [
     date: "Jul 28, 2026",
     excerpt:
       "We are excited to roll out R 4.6.1 on the cluster with a smooth transition for your current workflows...",
-    href: "https://www.dicc.um.edu.my/2026/07/28/%f0%9f%93%a2-important-update-transitioning-to-rstudio-server-2026-r-4-6-1-%e2%9a%99%ef%b8%8f%f0%9f%93%88/",
+    slug: "%f0%9f%93%a2-important-update-transitioning-to-rstudio-server-2026-r-4-6-1-%e2%9a%99%ef%b8%8f%f0%9f%93%88",
   },
   {
     category: "HPC",
@@ -25,7 +21,7 @@ const news = [
     date: "Jul 24, 2026",
     excerpt:
       "Reminder on resource requests, monitoring, and Slurm Fairshare policies for efficient cluster usage...",
-    href: "https://www.dicc.um.edu.my/2026/07/24/resource-utilization-fairshare-policies/",
+    slug: "resource-utilization-fairshare-policies",
   },
   {
     category: "Events",
@@ -34,16 +30,13 @@ const news = [
     date: "May 15, 2026",
     excerpt:
       "DICC welcomed a delegation from the newly established Faculty of Artificial Intelligence at UTM...",
-    href: "https://www.dicc.um.edu.my/2026/05/15/bridging-innovations-dicc-hosts-delegates-from-faculty-of-ai-utm/",
+    slug: "bridging-innovations-dicc-hosts-delegates-from-faculty-of-ai-utm",
   },
 ];
 
 export default function News() {
   return (
     <section id="news" className="relative py-32 md:py-44 bg-white overflow-hidden">
-      <ScrollParallax speed={0.15} className="absolute inset-0">
-        <NewsBackground />
-      </ScrollParallax>
       <div className="relative z-10 max-w-7xl mx-auto px-6">
         <AppleReveal direction="up">
           <div className="text-center mb-24">
@@ -58,11 +51,9 @@ export default function News() {
 
         <AppleStagger className="grid md:grid-cols-3 gap-10" stagger={0.12} direction="up" distance={50}>
           {news.map((item) => (
-            <CursorParallax key={item.title} speed={20}>
-              <a
-                href={item.href}
-                target="_blank"
-                rel="noopener noreferrer"
+            <CursorParallax key={item.title} speed={6}>
+              <Link
+                href={`/news/${item.slug}`}
                 className="group block h-full"
               >
                 <div className="p-8 rounded-3xl bg-[#f2f2f5] hover:bg-[#061a3a] transition-all duration-700 h-full">
@@ -80,26 +71,10 @@ export default function News() {
                     Read more &rarr;
                   </div>
                 </div>
-              </a>
+              </Link>
             </CursorParallax>
           ))}
         </AppleStagger>
-
-        <AppleReveal delay={0.3}>
-          <div className="text-center mt-16">
-            <a
-              href="https://www.dicc.um.edu.my/category/news/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 text-[#192f59] text-lg font-medium hover:text-[#C8A951] transition-colors group"
-            >
-              View All News
-              <svg className="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
-              </svg>
-            </a>
-          </div>
-        </AppleReveal>
       </div>
     </section>
   );
