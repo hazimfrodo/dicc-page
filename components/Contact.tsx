@@ -43,6 +43,7 @@ const contactInfo = [
       { label: "Service Desk", href: "https://jira.dicc.um.edu.my/servicedesk" },
       { label: "Documentation", href: "https://docs.dicc.um.edu.my/s/start" },
       { label: "Telegram Group", href: "https://t.me/+o1CxYhbTgyA0NDk1" },
+      { label: "Reactivate Account", href: "https://forms.gle/tqDzFir6kMmzABNg9" },
     ],
   },
 ];
