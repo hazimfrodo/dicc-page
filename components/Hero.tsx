@@ -108,7 +108,7 @@ export default function Hero() {
         {/* Subtitle */}
         <p
           ref={subtitleRef}
-          className={`mt-7 text-xl md:text-2xl text-white/80 max-w-2xl leading-relaxed font-light transition-all duration-1000 delay-700 drop-shadow-lg ${
+          className={`mt-7 text-xl md:text-2xl text-white/80 max-w-2xl leading-relaxed font-semibold transition-all duration-1000 delay-700 drop-shadow-lg ${
             loaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
           }`}
         >
