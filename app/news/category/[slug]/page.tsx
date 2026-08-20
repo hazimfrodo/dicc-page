@@ -109,7 +109,6 @@ export default async function CategoryNewsPage({
                               <Link
                                 key={cat.id}
                                 href={`/news/category/${cat.slug}`}
-                                onClick={(e) => e.stopPropagation()}
                                 className="text-[10px] font-semibold px-2 py-0.5 rounded-full bg-[#192f59]/10 text-[#192f59] hover:bg-[#C8A951]/20 hover:text-[#C8A951] transition-colors duration-300"
                               >
                                 {cat.name}
