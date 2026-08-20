@@ -1,22 +1,41 @@
 import Link from "next/link";
-import { getPosts, formatDate, stripHtml, type WPPost } from "@/lib/wordpress";
+import { notFound } from "next/navigation";
+import { getPostsByCategory, formatDate, stripHtml, type WPPost } from "@/lib/wordpress";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 
-export const metadata = {
-  title: "All News | DICC",
-  description: "Latest news and updates from the Data-Intensive Computing Centre, Universiti Malaya.",
-};
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}) {
+  const { slug } = await params;
+  const { categoryName } = await getPostsByCategory(slug);
+  if (!categoryName) return { title: "Category Not Found" };
 
-export default async function AllNewsPage({
+  return {
+    title: `${categoryName} News | DICC`,
+    description: `Latest ${categoryName} news from the Data-Intensive Computing Centre, Universiti Malaya.`,
+  };
+}
+
+export default async function CategoryNewsPage({
+  params,
   searchParams,
 }: {
+  params: Promise<{ slug: string }>;
   searchParams: Promise<{ page?: string }>;
 }) {
-  const params = await searchParams;
-  const currentPage = Number(params.page) || 1;
+  const { slug } = await params;
+  const sp = await searchParams;
+  const currentPage = Number(sp.page) || 1;
   const perPage = 12;
-  const posts = await getPosts(perPage, currentPage);
+
+  const { posts, categoryName } = await getPostsByCategory(slug, currentPage, perPage);
+
+  if (!categoryName) {
+    notFound();
+  }
 
   return (
     <>
@@ -25,7 +44,7 @@ export default async function AllNewsPage({
         <div className="max-w-7xl mx-auto px-6">
           {/* Back link */}
           <Link
-            href="/"
+            href="/news"
             className="inline-flex items-center gap-2 text-[#848484] hover:text-[#061a3a] transition-colors mb-10 group"
           >
             <svg
@@ -37,16 +56,16 @@ export default async function AllNewsPage({
             >
               <path strokeLinecap="round" strokeLinejoin="round" d="M10.5 19.5L3 12m0 0l7.5-7.5M3 12h18" />
             </svg>
-            Back to Home
+            Back to All News
           </Link>
 
           {/* Header */}
           <div className="text-center mb-16">
             <p className="text-[#C8A951] text-sm font-semibold tracking-[0.2em] uppercase mb-4">
-              News & Updates
+              Category
             </p>
             <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-[#061a3a] leading-[1.1] tracking-tight">
-              Latest News
+              {categoryName}
             </h1>
           </div>
 
@@ -87,12 +106,14 @@ export default async function AllNewsPage({
                         <div className="flex flex-wrap gap-2 mb-3">
                           {categories.map(
                             (cat: { id: number; name: string; slug: string }) => (
-                              <span
+                              <Link
                                 key={cat.id}
-                                className="text-[10px] font-semibold px-2 py-0.5 rounded-full bg-[#192f59]/10 text-[#192f59] group-hover:bg-[#C8A951]/20 group-hover:text-[#C8A951] transition-colors duration-700"
+                                href={`/news/category/${cat.slug}`}
+                                onClick={(e) => e.stopPropagation()}
+                                className="text-[10px] font-semibold px-2 py-0.5 rounded-full bg-[#192f59]/10 text-[#192f59] hover:bg-[#C8A951]/20 hover:text-[#C8A951] transition-colors duration-300"
                               >
                                 {cat.name}
-                              </span>
+                              </Link>
                             )
                           )}
                         </div>
@@ -124,7 +145,7 @@ export default async function AllNewsPage({
             </div>
           ) : (
             <div className="text-center py-20">
-              <p className="text-[#848484] text-lg">No news articles found.</p>
+              <p className="text-[#848484] text-lg">No articles in this category yet.</p>
             </div>
           )}
 
@@ -133,7 +154,7 @@ export default async function AllNewsPage({
             <div className="flex justify-center items-center gap-6 mt-16">
               {currentPage > 1 && (
                 <Link
-                  href={`/news?page=${currentPage - 1}`}
+                  href={`/news/category/${slug}?page=${currentPage - 1}`}
                   className="inline-flex items-center gap-2 px-6 py-3 text-[#061a3a] font-medium rounded-full border border-gray-200 hover:border-[#061a3a] hover:bg-[#061a3a] hover:text-white transition-all duration-300"
                 >
                   <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
@@ -149,7 +170,7 @@ export default async function AllNewsPage({
 
               {posts.length === perPage && (
                 <Link
-                  href={`/news?page=${currentPage + 1}`}
+                  href={`/news/category/${slug}?page=${currentPage + 1}`}
                   className="inline-flex items-center gap-2 px-6 py-3 text-[#061a3a] font-medium rounded-full border border-gray-200 hover:border-[#061a3a] hover:bg-[#061a3a] hover:text-white transition-all duration-300"
                 >
                   Next

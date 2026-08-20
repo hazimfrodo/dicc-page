@@ -77,12 +77,13 @@ export default async function NewsArticlePage({
           {/* Categories */}
           <div className="flex flex-wrap gap-2 mb-4">
             {categories.map((cat: { id: number; name: string; slug: string }) => (
-              <span
+              <Link
                 key={cat.id}
-                className="inline-block px-3 py-1 rounded-full text-xs font-semibold bg-[#192f59]/10 text-[#192f59]"
+                href={`/news/category/${cat.slug}`}
+                className="inline-block px-3 py-1 rounded-full text-xs font-semibold bg-[#192f59]/10 text-[#192f59] hover:bg-[#C8A951]/20 hover:text-[#C8A951] transition-colors duration-300"
               >
                 {cat.name}
-              </span>
+              </Link>
             ))}
           </div>
 
@@ -123,9 +124,14 @@ export default async function NewsArticlePage({
           <div className="mt-12 pt-8 border-t border-gray-200">
             <p className="text-sm text-[#848484]">
               Categories:{" "}
-              {categories.map((cat: { id: number; name: string }, i: number) => (
+              {categories.map((cat: { id: number; name: string; slug: string }, i: number) => (
                 <span key={cat.id}>
-                  <span className="font-medium text-[#061a3a]">{cat.name}</span>
+                  <Link
+                    href={`/news/category/${cat.slug}`}
+                    className="font-medium text-[#061a3a] hover:text-[#C8A951] transition-colors"
+                  >
+                    {cat.name}
+                  </Link>
                   {i < categories.length - 1 && ", "}
                 </span>
               ))}

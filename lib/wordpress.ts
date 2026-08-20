@@ -54,10 +54,48 @@ export async function getRelatedPosts(
   }
 }
 
-export async function getPosts(perPage = 3): Promise<WPPost[]> {
+export async function getPosts(perPage = 3, page = 1): Promise<WPPost[]> {
   try {
-    const url = `${WP_API_BASE}/posts?per_page=${perPage}&_embed`;
+    const url = `${WP_API_BASE}/posts?per_page=${perPage}&page=${page}&_embed`;
     const res = await fetch(url, { next: { revalidate: 60 } });
+    if (!res.ok) return [];
+    return await res.json();
+  } catch {
+    return [];
+  }
+}
+
+export async function getPostsByCategory(
+  categorySlug: string,
+  page = 1,
+  perPage = 12
+): Promise<{ posts: WPPost[]; categoryName: string }> {
+  try {
+    // First get category ID from slug
+    const catUrl = `${WP_API_BASE}/categories?slug=${categorySlug}`;
+    const catRes = await fetch(catUrl, { next: { revalidate: 300 } });
+    if (!catRes.ok) return { posts: [], categoryName: "" };
+    const categories: Category[] = await catRes.json();
+    if (categories.length === 0) return { posts: [], categoryName: "" };
+
+    const categoryId = categories[0].id;
+    const categoryName = categories[0].name;
+
+    // Then fetch posts by category
+    const url = `${WP_API_BASE}/posts?categories=${categoryId}&per_page=${perPage}&page=${page}&_embed`;
+    const res = await fetch(url, { next: { revalidate: 60 } });
+    if (!res.ok) return { posts: [], categoryName };
+    const posts: WPPost[] = await res.json();
+    return { posts, categoryName };
+  } catch {
+    return { posts: [], categoryName: "" };
+  }
+}
+
+export async function getAllCategories(): Promise<Category[]> {
+  try {
+    const url = `${WP_API_BASE}/categories?per_page=100`;
+    const res = await fetch(url, { next: { revalidate: 300 } });
     if (!res.ok) return [];
     return await res.json();
   } catch {
