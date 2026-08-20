@@ -59,7 +59,7 @@ export default async function NewsArticlePage({
         <div className="max-w-4xl mx-auto px-6">
           {/* Back link */}
           <Link
-            href="/#news"
+            href="/news"
             className="inline-flex items-center gap-2 text-[#848484] hover:text-[#061a3a] transition-colors mb-10 group"
           >
             <svg
